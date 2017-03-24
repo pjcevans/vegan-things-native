@@ -16,20 +16,20 @@ class RecipeFullPage extends Component {
     var visibleClass = (this.props.visibleClass) ? this.props.visibleClass : undefined
 
     return (
-      <div className={visibleClass}>
-        <h2>{recipe.name}<span className="postscript"> - added {recipe.date}</span></h2>
-        <div id="recipefullpageblock">
+      <Text className={visibleClass}>
+        <Text>{recipe.name}<span className="postscript"> - added {recipe.date}</span></Text>
+        <Text id="recipefullpageblock">
 
-          <div>
+          <Text>
           {recipe.images.map( (image, id) =>
             (image.type === "main") ? (
 
             <img key={id} src={require("../../images/" + image.url)} />
           ) : undefined
           )}
-          </div>
+          </Text>
 
-          <div className="recipe-fullpage-text">
+          <Text className="recipe-fullpage-text">
             <h3>This recipe:</h3>
             <p>{recipe.blurb}</p>
             <h3>Ingredients:</h3>
@@ -44,12 +44,11 @@ class RecipeFullPage extends Component {
                 <li key={id}>Step {id + 1}: {step}</li>
               )}
             </ul>
+          </Text>
 
-          </div>
 
-
-        </div>
-      </div>
+        </Text>
+      </Text>
     )
  }
 }

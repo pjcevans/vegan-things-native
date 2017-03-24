@@ -1,4 +1,4 @@
-// import myData from '../testdata/recipes.json';
+import myData from '../testdata/recipes.json';
 // import ReactDOM from 'react-dom'
 // import HomeContentItems from './HomeContentItems'
 import React, { Component } from 'react';
@@ -12,7 +12,7 @@ class Home extends Component {
     },
   }
   render() {
-    return <Text>List of all homes</Text>
+    return <Text>List of all stuff</Text>
   }
 }
 

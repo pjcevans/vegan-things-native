@@ -74,9 +74,9 @@ class HomeContentItems extends Component {
  	}
 
     return (
-      <div className="content-items-list">
+      <Text className="content-items-list">
       	{displayedItems}
-      </div>
+      </Text>
     )
  }
 }

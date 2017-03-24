@@ -2,8 +2,8 @@ import FaDown from 'react-icons/lib/fa/chevron-down'
 
 
 const HomeShowRecipe = (props) =>
-  <div className="show-next-block">
-    <button className="show-next-button" onClick={() => props.showAnotherRecipe()}>Show next recipe...<br /> <FaDown /></button>
-  </div>
+  <Text className="show-next-block">
+    <Button className="show-next-button" onClick={() => props.showAnotherRecipe()}>Show next recipe...<br /> <FaDown /></Button>
+  </Text>
 
 export default HomeShowRecipe

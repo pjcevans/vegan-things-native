@@ -1,6 +1,8 @@
 import HomeShowRecipe from './HomeShowRecipe'
-import { Component } from 'react'
+import React, { Component } from 'react';
 import RecipeFullPage from './RecipeFullPage'
+import { Text, Image, View } from 'react-native';
+
 // The component takes 3 props:
 // - A state variable that determines how many recipes are visible - `currentRecipe`
 // - A function which increments that state variable - `showAnotherRecipe`
@@ -74,9 +76,11 @@ class HomeContentItems extends Component {
  	}
 
     return (
-      <Text className="content-items-list">
-      	{displayedItems}
-      </Text>
+      <View className="content-items-list">
+        {displayedItems}
+      </View>
+      //
+
     )
  }
 }

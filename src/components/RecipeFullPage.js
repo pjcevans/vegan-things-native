@@ -1,5 +1,7 @@
-import { Component } from 'react'
+import React, { Component } from 'react';
 import myData from '\../testdata/recipes.json';
+import { Text, Image, View } from 'react-native';
+import CustomImage from './CustomImage'
 // Using data imported from the file on each recipe page is fubar,
 // this should be done by passing data to the component or by redux
 
@@ -14,41 +16,45 @@ class RecipeFullPage extends Component {
     var thisRecipe = (this.props.hasOwnProperty("params")) ? this.props.params.recipeId : this.props.recipeId
     var recipe = myData.items.find(x => x.id === parseInt(thisRecipe))
     var visibleClass = (this.props.visibleClass) ? this.props.visibleClass : undefined
+    // recipe.images.map( (image, id) => {
+    //   if (image.type === "main") {
+    //     require()
+    //   }
+    // })
 
     return (
-      <Text className={visibleClass}>
-        <Text>{recipe.name}<span className="postscript"> - added {recipe.date}</span></Text>
-        <Text id="recipefullpageblock">
+      <View className={visibleClass}>
+        <Text>{recipe.name}<Text className="postscript"> - added {recipe.date}</Text></Text>
+        <View id="recipefullpageblock">
 
-          <Text>
+          <View>
           {recipe.images.map( (image, id) =>
             (image.type === "main") ? (
-
-            <img key={id} src={require("../../images/" + image.url)} />
+            <CustomImage key={id} imageName={"../images/" + image.url} />
           ) : undefined
           )}
-          </Text>
+          </View>
 
-          <Text className="recipe-fullpage-text">
-            <h3>This recipe:</h3>
-            <p>{recipe.blurb}</p>
-            <h3>Ingredients:</h3>
-            <ul>
+          <View className="recipe-fullpage-text">
+            <Text>This recipe:</Text>
+            <Text>{recipe.blurb}</Text>
+            <Text>Ingredients:</Text>
+            <View>
               {recipe.ingredients.map( (ingredient, id) =>
-                <li key={id}>{ingredient.quantity + " " + ingredient.unit + " " + ingredient.type}</li>
+                <Text key={id}>{ingredient.quantity + " " + ingredient.unit + " " + ingredient.type}</Text>
               )}
-            </ul>
-            <h3>Method:</h3>
-            <ul>
+            </View>
+            <Text>Method:</Text>
+            <View>
               {recipe.method.map( (step, id) =>
-                <li key={id}>Step {id + 1}: {step}</li>
+                <Text key={id}>Step {id + 1}: {step}</Text>
               )}
-            </ul>
-          </Text>
+            </View>
+          </View>
 
 
-        </Text>
-      </Text>
+        </View>
+      </View>
     )
  }
 }

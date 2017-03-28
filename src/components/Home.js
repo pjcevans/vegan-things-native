@@ -2,7 +2,7 @@ import myData from '../testdata/recipes.json';
 // import ReactDOM from 'react-dom'
 import HomeContentItems from './HomeContentItems'
 import React, { Component } from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, Image, View, ScrollView } from 'react-native';
 
 
 class Home extends Component {
@@ -41,9 +41,6 @@ class Home extends Component {
     // return <Text>List of all stuff</Text>
     return (
       <ScrollView>
-        <Text>List of recent chats</Text>
-        <Text>List of recent chats</Text>
-        <Text>List of recent chats</Text>
         <HomeContentItems currentRecipe={this.state.currentRecipe}
                           showAnotherRecipe={this.showAnotherRecipe.bind(this)}
                           contentItems={myData.items.slice(0, this.state.currentRecipe + 1)} />

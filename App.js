@@ -52,7 +52,7 @@ const MainScreenNavigator = TabNavigator({
         fontSize: 12,
       },
       style: {
-        width: 340
+        width: 360
       },
       tabStyle: {
         backgroundColor: '#fff',

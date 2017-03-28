@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import myData from '\../testdata/recipes.json';
-import { Text, Image, View } from 'react-native';
+import { Text, Image, View, StyleSheet } from 'react-native';
 import CustomImage from './CustomImage'
 // Using data imported from the file on each recipe page is fubar,
 // this should be done by passing data to the component or by redux
@@ -30,7 +30,9 @@ class RecipeFullPage extends Component {
           <View>
           {recipe.images.map( (image, id) =>
             (image.type === "main") ? (
-            <CustomImage key={id} imageName={"../images/" + image.url} />
+            <Image key={id}
+                   source={{uri: image.url}}
+                   style={styles.base}/>
           ) : undefined
           )}
           </View>
@@ -58,6 +60,11 @@ class RecipeFullPage extends Component {
     )
  }
 }
-
+const styles = StyleSheet.create({
+  base: {
+    height: 300,
+    width: 360,
+  },
+});
 
 export default RecipeFullPage

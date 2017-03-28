@@ -1,7 +1,7 @@
 import HomeShowRecipe from './HomeShowRecipe'
 import React, { Component } from 'react';
 import RecipeFullPage from './RecipeFullPage'
-import { Text, Image, View } from 'react-native';
+import { Text, Image, View, StyleSheet } from 'react-native';
 
 // The component takes 3 props:
 // - A state variable that determines how many recipes are visible - `currentRecipe`
@@ -66,7 +66,7 @@ class HomeContentItems extends Component {
  			// If there is another item in the dataset after the current item, draw it as a hidden item, so that
  			// when it is re-drawn as visible later a transition effect can be applied
  			} else if (i === this.props.currentRecipe +1 && this.props.currentRecipe !== this.props.contentItems.length) {
-			 		displayedItems.push(<RecipeFullPage visibleClass={"content-hidden"}
+			 		displayedItems.push(<RecipeFullPage style={styles.contentHidden}
 		                                      key={i}
 		                                      recipeId={this.props.contentItems[i - 1].id} />)
  			}
@@ -85,5 +85,15 @@ class HomeContentItems extends Component {
  }
 }
 
+const styles = StyleSheet.create({
+  contentHidden: {
+    color: '#44a',
+    height: 0,
+    opacity: 0,
+  },
+  base: {
+    height: 300,
+  },
+});
 
 export default HomeContentItems

@@ -3,6 +3,8 @@ import { StyleSheet, Text, Image, View, Dimensions } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import { Constants } from 'expo';
 import Home from './src/components/Home'
+import Gallery from './src/components/Gallery'
+
 //
 //
 // class Home extends Component {
@@ -16,16 +18,16 @@ import Home from './src/components/Home'
 //   }
 // }
 
-class Gallery extends Component {
-  static navigationOptions = {
-    tabBar: {
-      label: 'Gallery',
-    },
-  }
-  render() {
-    return <Text>List of all contacts</Text>
-  }
-}
+// class Gallery extends Component {
+//   static navigationOptions = {
+//     tabBar: {
+//       label: 'Gallery',
+//     },
+//   }
+//   render() {
+//     return <Text>List of all contacts</Text>
+//   }
+// }
 
 class Search extends Component {
   static navigationOptions = {

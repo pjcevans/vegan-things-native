@@ -23,8 +23,7 @@ class RecipeFullPage extends Component {
     // })
 
     return (
-      <View className={visibleClass}>
-        <Text>{recipe.name}<Text className="postscript"> - added {recipe.date}</Text></Text>
+      <View style={this.props.customStyle}>
         <View id="recipefullpageblock">
 
           <View>
@@ -37,13 +36,14 @@ class RecipeFullPage extends Component {
           )}
           </View>
 
-          <View className="recipe-fullpage-text">
+          <View style={styles.centered}>
+            <Text style={styles.title}>{recipe.name}<Text className="postscript"> - added {recipe.date}</Text></Text>
             <Text>This recipe:</Text>
             <Text>{recipe.blurb}</Text>
             <Text>Ingredients:</Text>
             <View>
               {recipe.ingredients.map( (ingredient, id) =>
-                <Text key={id}>{ingredient.quantity + " " + ingredient.unit + " " + ingredient.type}</Text>
+                <Text key={id} style={styles.centered}>{ingredient.quantity + " " + ingredient.unit + " " + ingredient.type}</Text>
               )}
             </View>
             <Text>Method:</Text>
@@ -61,9 +61,24 @@ class RecipeFullPage extends Component {
  }
 }
 const styles = StyleSheet.create({
+
+  title: {
+    fontSize: 22,
+  },
+  contentHidden: {
+    backgroundColor: '#44a',
+    height: 0,
+    opacity: 0,
+  },
+  content: {
+    backgroundColor: '#319',
+  },
   base: {
     height: 300,
     width: 360,
+  },
+  centered: {
+    alignItems: 'center',
   },
 });
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, Image, View, Dimensions } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import { Constants } from 'expo';
 import Home from './src/components/Home'
@@ -38,7 +38,7 @@ class Search extends Component {
   }
 }
 
-
+let screenWidth = Dimensions.get("window").width;
 const MainScreenNavigator = TabNavigator({
   Home: { screen: Home },
   Gallery: { screen: Gallery },
@@ -52,7 +52,7 @@ const MainScreenNavigator = TabNavigator({
         fontSize: 12,
       },
       style: {
-        width: 360
+        width: screenWidth,
       },
       tabStyle: {
         backgroundColor: '#fff',

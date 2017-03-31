@@ -29,14 +29,17 @@ class HomeContentItems extends Component {
       super(props)
   }
 
+
+
   render() {
+
  	var displayedItems = []
  	// If no data is passed
  	if (this.props.contentItems.length === 0) {
  		console.log("Whoops, no data provided.")
  	// If a single datum is passed
  	} else if (this.props.contentItems.length === 1) {
-	 		contentItems.push(<RecipeFullPage visibleClass={"content-shown"}
+	 		contentItems.push(<RecipeFullPage customStyle={styles.content}
                                       key={1}
                                       recipeId={this.props.contentItems[0].id} />)
     // If more than one datum is passed
@@ -46,13 +49,13 @@ class HomeContentItems extends Component {
  		for (let i = 1; i <= this.props.contentItems.length; i++) {
  			// If current item is before the latest item to display just draw it
  			if (i < this.props.currentRecipe ) {
-		 		displayedItems.push(<RecipeFullPage visibleClass={"content-shown"}
+		 		displayedItems.push(<RecipeFullPage customStyle={styles.content}
 	                                      key={i}
 	                                      recipeId={this.props.contentItems[i - 1].id} />)
  			// If the current item is the latest item to display draw it as well as a "show more" button
  			// unless it's also the last item in the dataset.
  			} else if (i === this.props.currentRecipe && this.props.currentRecipe !== this.props.contentItems.length) {
-			 		displayedItems.push(<RecipeFullPage visibleClass={"content-shown"}
+			 		displayedItems.push(<RecipeFullPage customStyle={styles.content}
 		                                      key={i}
 		                                      recipeId={this.props.contentItems[i - 1].id} />);
 	      	displayedItems.push(<HomeShowRecipe key={i + "submit"}
@@ -60,13 +63,13 @@ class HomeContentItems extends Component {
  			// If the current item is the latest item to display and the last in the dataset,
  			// then just display it without a button
  			} else if (i === this.props.currentRecipe && this.props.currentRecipe === this.props.contentItems.length) {
-			 		displayedItems.push(<RecipeFullPage visibleClass={"content-shown"}
+			 		displayedItems.push(<RecipeFullPage customStyle={styles.content}
 		                                      key={i}
 		                                      recipeId={this.props.contentItems[i - 1].id} />)
  			// If there is another item in the dataset after the current item, draw it as a hidden item, so that
  			// when it is re-drawn as visible later a transition effect can be applied
  			} else if (i === this.props.currentRecipe +1 && this.props.currentRecipe !== this.props.contentItems.length) {
-			 		displayedItems.push(<RecipeFullPage style={styles.contentHidden}
+			 		displayedItems.push(<RecipeFullPage customStyle={styles.contentHidden}
 		                                      key={i}
 		                                      recipeId={this.props.contentItems[i - 1].id} />)
  			}
@@ -87,9 +90,13 @@ class HomeContentItems extends Component {
 
 const styles = StyleSheet.create({
   contentHidden: {
-    color: '#44a',
     height: 0,
     opacity: 0,
+  },
+  content: {
+    marginBottom: 30,
+    borderBottomWidth: 2,
+    borderTopWidth: 1,
   },
   base: {
     height: 300,

@@ -1,36 +1,15 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, Image, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, Image, View, Dimensions, Button } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Constants } from 'expo';
-import Home from './src/components/Home'
+import ScrollingContent from './src/components/ScrollingContent'
 import Gallery from './src/components/Gallery'
 import RecipeFullPage from './src/components/RecipeFullPage'
+import myData from './src/testdata/recipes.json';
 
 
+// placeholder
 //
-//
-// class Home extends Component {
-//   static navigationOptions = {
-//     tabBar: {
-//       label: 'Home',
-//     },
-//   }
-//   render() {
-//     return <Text>List of all homes</Text>
-//   }
-// }
-
-// class Gallery extends Component {
-//   static navigationOptions = {
-//     tabBar: {
-//       label: 'Gallery',
-//     },
-//   }
-//   render() {
-//     return <Text>List of all contacts</Text>
-//   }
-// }
-
 class Search extends Component {
   static navigationOptions = {
     tabBar: {
@@ -38,14 +17,16 @@ class Search extends Component {
     },
   }
   render() {
-    return <Text>List of all contacts</Text>;
+    return <Text>List of all contacts</Text>
   }
 }
+//
+//
 
 let screenWidth = Dimensions.get("window").width;
 
 const MainScreenNavigator = TabNavigator({
-  Home: { screen: Home },
+  ScrollingContent: { screen: ScrollingContent },
   Gallery: { screen: Gallery },
   Search: { screen: Search },
 },{
@@ -69,34 +50,45 @@ const MainScreenNavigator = TabNavigator({
   },
 });
 
+
+
 class MainScreen extends Component {
+  // Empty text element used to set width for tab navigator; workaround.
   render() {
     return (
       <View>
-      <Text>Hey</Text>
-        <MainScreenNavigator />
+        <Text style={styles.widther}></Text>
+        <AppNavigator />
       </View>
-    );
+    )
   }
 }
 
 const AppNavigator = StackNavigator({
-  Top: { screen: MainScreen },
-  Recipe: {
-    path: "recipes/:recipeId",
-    screen: Home,
+  Home: {
+    navigationOptions: {
+      title: "Vegan Things",
+    },
+    screen: MainScreenNavigator
   },
-}, {
-  initialRouteName: 'Top',
+  Recipe: {
+    navigationOptions: {
+      title: ({ state }) => `Recipe number ${state.params.recipeId}`,
+    },
+    path: "recipes/:recipeId",
+    screen: RecipeFullPage,
+  },
+},{
+  style: {
+    width: screenWidth,
+  },
 });
-
-
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AppNavigator />
+        <MainScreen />
       </View>
     );
   }
@@ -108,10 +100,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#123",
   },
   hellotext: {
-    backgroundColor: "#127",
+    backgroundColor: "#123",
     color: "#fff",
+  },
+  widther: {
+    width: screenWidth,
   },
 });

@@ -10,7 +10,9 @@ const RecipeList = (props) =>
             { (props.recipes) ? (
                 <View id="gallerybox">
                   {props.recipes.map( item =>
-                    <Recipe key={item.id} item={item} />
+                    <Recipe key={item.id}
+                            item={item}
+                            navigation={props.navigation} />
                   )}
                 </View>
             ) : (

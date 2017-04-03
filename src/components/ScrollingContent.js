@@ -5,13 +5,13 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, Image, View, ScrollView, ListView, scrollToEnd } from 'react-native';
 
 
-class Home extends Component {
+class ScrollingContent extends Component {
   static navigationOptions = {
     tabBar: {
       label: 'Home',
     },
   }
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
     width: 70,
   },
 });
-export default Home;
+export default ScrollingContent;

@@ -8,13 +8,13 @@ import CustomImage from './CustomImage'
 
 class RecipeFullPage extends Component {
   constructor(props) {
-      super(props)
+    super(props);
   }
 
   render() {
     // Picks the data for the current recipe id
-    var thisRecipe = (this.props.hasOwnProperty("params")) ? this.props.params.recipeId : this.props.recipeId
-    var recipe = myData.items.find(x => x.id === parseInt(thisRecipe))
+    var thisRecipe = (this.props.hasOwnProperty("params")) ? this.props.params.recipeId : this.props.recipeId;
+    var recipe = myData.items.find(x => x.id === parseInt(thisRecipe));
     var visibleClass = (this.props.visibleClass) ? this.props.visibleClass : undefined
     // recipe.images.map( (image, id) => {
     //   if (image.type === "main") {
@@ -57,8 +57,8 @@ class RecipeFullPage extends Component {
 
         </View>
       </View>
-    )
- }
+    );
+  }
 }
 const styles = StyleSheet.create({
 
@@ -66,20 +66,20 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   contentHidden: {
-    backgroundColor: '#44a',
+    backgroundColor: "#44a",
     height: 0,
     opacity: 0,
   },
   content: {
-    backgroundColor: '#319',
+    backgroundColor: "#319",
   },
   base: {
     height: 300,
     width: 360,
   },
   centered: {
-    alignItems: 'center',
+    alignItems: "center",
   },
 });
 
-export default RecipeFullPage
+export default RecipeFullPage;

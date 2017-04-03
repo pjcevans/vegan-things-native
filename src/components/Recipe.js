@@ -6,7 +6,7 @@ import { Text, Image, View, StyleSheet } from 'react-native';
 
 
 const Recipe = (props) =>
-  <View className="reciperesult">
+  <View style={styles.centered}>
     {props.item.images.map( (image, id) =>
       (image.type === "main") ? (
         <Image key={id}
@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
   base: {
     height: 300,
     width: 360,
+  },
+  centered: {
+    alignItems: 'center',
   },
 });
 

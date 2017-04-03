@@ -11,33 +11,34 @@ class Home extends Component {
       label: 'Home',
     },
   }
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentRecipe: 1
+    };
+  }
+  //
+  // scrollToBottom = () => {
+  //   // Final item on page passed ref 'finalItem' in order to enable scrolling to that component
+  //   const node = ReactDOM.findDOMNode(this.finalItem);
+  //   node.scrollIntoView({behavior: "smooth"});
+  // }
 
-    constructor(props) {
-        super(props)
-        this.state = {
-          currentRecipe: 1
-        }
+  showAnotherRecipe() {
+    // after a new recipe has been added scroll to the bottom
+    if (this.state.currentRecipe < myData.items.length) {
+      this.setState({
+        currentRecipe: this.state.currentRecipe + 1
+      }, () => {
+        // this.scrollToBottom();
+        console.log(this._contentHeight - 100);
+
+      });
+    } else {
+      return undefined;
     }
-    //
-    // scrollToBottom = () => {
-    //   // Final item on page passed ref 'finalItem' in order to enable scrolling to that component
-    //   const node = ReactDOM.findDOMNode(this.finalItem);
-    //   node.scrollIntoView({behavior: "smooth"});
-    // }
-
-    showAnotherRecipe() {
-      // after a new recipe has been added scroll to the bottom
-      if (this.state.currentRecipe < myData.items.length) {
-        this.setState({
-          currentRecipe: this.state.currentRecipe + 1
-        }, () => {
-          // this.scrollToBottom();
-          console.log(this._contentHeight - 100);
-
-        });
-      } else {
-      }
-    }
+  }
 
   render() {
     // return <Text>List of all stuff</Text>
@@ -53,7 +54,7 @@ class Home extends Component {
 
 
       </ScrollView>
-    )
+    );
   }
 }
 
@@ -63,4 +64,4 @@ const styles = StyleSheet.create({
     width: 70,
   },
 });
-export default Home
+export default Home;

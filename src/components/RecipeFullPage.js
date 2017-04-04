@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import myData from '../testdata/recipes.json';
 import { Text, Image, View, StyleSheet, ScrollView } from 'react-native';
-import CustomImage from './CustomImage'
 // Using data imported from the file on each recipe page is fubar,
 // this should be done by passing data to the component or by redux
 
@@ -13,9 +12,7 @@ class RecipeFullPage extends Component {
 
   render() {
     // Picks the data for the current recipe id
-    this.props.hasOwnProperty("navigation") ? console.log("the recipe id is ", this.props.navigation.state.params.recipeId) : undefined
     var thisRecipe = (this.props.hasOwnProperty("navigation")) ? this.props.navigation.state.params.recipeId : this.props.recipeId;
-    console.log("Current recipe we're using is...", thisRecipe)
     var recipe = myData.items.find(x => x.id === parseInt(thisRecipe));
     var visibleClass = (this.props.visibleClass) ? this.props.visibleClass : undefined
     // recipe.images.map( (image, id) => {

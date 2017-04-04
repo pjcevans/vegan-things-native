@@ -4,31 +4,32 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Constants } from 'expo';
 import ScrollingContent from './src/components/ScrollingContent'
 import Gallery from './src/components/Gallery'
+import SearchPage from './src/components/SearchPage'
 import RecipeFullPage from './src/components/RecipeFullPage'
 import myData from './src/testdata/recipes.json';
 
 
-// placeholder
-//
-class Search extends Component {
-  static navigationOptions = {
-    tabBar: {
-      label: 'Search',
-    },
-  }
-  render() {
-    return <Text>List of all contacts</Text>
-  }
-}
-//
-//
+// // placeholder
+// //
+// class Search extends Component {
+//   static navigationOptions = {
+//     tabBar: {
+//       label: 'Search',
+//     },
+//   }
+//   render() {
+//     return <Text>List of all contacts</Text>
+//   }
+// }
+// //
+// //
 
 let screenWidth = Dimensions.get("window").width;
 
 const MainScreenNavigator = TabNavigator({
   ScrollingContent: { screen: ScrollingContent },
   Gallery: { screen: Gallery },
-  Search: { screen: Search },
+  Search: { screen: SearchPage },
 },{
   tabBarOptions: {
     activeTintColor: "#191",

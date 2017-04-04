@@ -65,8 +65,8 @@ class TagMenu extends Component {
                                        toggleTagFilter={this.props.toggleTagFilter} />);
     });
     return (
-      <View id="filterpane">
-
+      <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: "row", flexGrow: 2, flexWrap: "wrap", flexShrink: 1, alignItems: "center", justifyContent: "space-between"}}>
         { (this.props.filterTags.length > 0 ||
           this.props.searchTerm) ? (
             <TagClearAll clearAllTagsAndSearch={this.props.clearAllTagsAndSearch}/>
@@ -81,10 +81,11 @@ class TagMenu extends Component {
             <View></View>
         )}
 
-        <View className="filtertagsbox">{selectedTags}</View>
-        <View>
+          {selectedTags}
+        </View>
+        <View style={{flexGrow: 1, alignItems: "center"}}>
           <Text>Filter your results:</Text>
-          <View>{rows}</View>
+          <View style={{alignItems: "center"}}>{rows}</View>
         </View>
       </View>
     )

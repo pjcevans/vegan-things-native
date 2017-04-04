@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Button, View } from 'react-native';
 
 const TagRow = (props) =>
-  <View>
-    <Button className={props.clicked}
+<View style={{marginTop: 2}}>
+    <Button style={{marginTop: 5}}
+            className={props.clicked}
             title={`${props.item} (${props.filterByTag(props.item).length})`}
             onPress={() => props.toggleTagFilter(props.item)}>
-
     </Button>
-  </View>
+    </View>
 
 export default TagRow
 

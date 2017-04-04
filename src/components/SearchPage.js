@@ -7,7 +7,6 @@ import SearchTool from './SearchTool'
 
 const SearchPage = ({navigation}) =>
   <ScrollView>
-    <Text>Find just the recipe you are looking for:</Text>
     <SearchTool navigation={navigation} />
   </ScrollView>
 

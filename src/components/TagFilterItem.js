@@ -1,6 +1,9 @@
-const TagFilterItem = (props) =>
-  <p><a onClick={() => props.toggleTagFilter(props.item)}>
-          {props.item} <span className="close">x</span></a>
-  </p>
+import React from 'react';
+import { Button} from 'react-native';
 
+const TagFilterItem = (props) =>
+  <Button title={`${props.item} x`}
+          onPress={() => props.toggleTagFilter(props.item)}>
+
+  </Button>
 export default TagFilterItem

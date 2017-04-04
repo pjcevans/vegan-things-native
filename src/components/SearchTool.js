@@ -122,7 +122,9 @@ class SearchTool extends Component {
     return (
       <View>
         <View>
-          <TextInput value={this.state.searchTerm}
+          <TextInput style={{height: 40, textAlign: "center", backgroundColor: "#FFF"}}
+                     placeholder="Search for just the recipe you are looking for..."
+                     value={this.state.searchTerm}
                      onChange={(event) => this.searchFilter(event.nativeEvent.text)} />
           <TagMenu tagClickFilter={this.tagClickFilter.bind(this)}
                    filterByTag={this.filterByTag.bind(this)}
@@ -133,11 +135,10 @@ class SearchTool extends Component {
                    clearSearch={this.clearSearch.bind(this)}
                    clearAllTagsAndSearch={this.clearAllTagsAndSearch.bind(this)} />
            <RecipeList recipes={this.state.filteredRecipes}
-                      filterTags={this.state.filterTags}
-                      searchTerm={this.state.searchTerm}
-                      navigation={this.props.navigation} />
+                       filterTags={this.state.filterTags}
+                       searchTerm={this.state.searchTerm}
+                       navigation={this.props.navigation} />
         </View>
-
       </View>
   )
  }

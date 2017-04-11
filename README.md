@@ -1,3 +1,7 @@
+### Running the native app on your device
+- Download Expo for [android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) or [apple](https://itunes.apple.com/app/apple-store/id982107779?pt=17102800&ct=www&mt=8)
+- Or for android install [the apk](https://exp-shell-app-assets.s3-us-west-1.amazonaws.com/android%2F%40pjcevans%2Fveganthings-5a3654f6-1ec9-11e7-b3a2-0a580a78000b-signed.apk) and open this link in-app: exp://exp.host/@pjcevans/veganthings 
+
 ### This is an app which tests out:
 - [Create React Native App](https://github.com/react-community/create-react-native-app)
 - [React Navigation](https://reactnavigation.org/docs/intro/)

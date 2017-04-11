@@ -1,5 +1,8 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 5126
+  "packagerPid": 9383,
+  "expoServerNgrokUrl": "https://8n-zag.pjcevans.vegan-things-native.exp.direct",
+  "packagerNgrokUrl": "https://packager.8n-zag.pjcevans.vegan-things-native.exp.direct",
+  "ngrokPid": 9425
 }

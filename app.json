@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "15.0.0"
+    "sdkVersion": "15.0.0",
+    "name": "Vegan Things",
+    "icon": "http://i.imgur.com/WAR5H8h.png",
+    "version": "1.1.0",
+    "slug": "veganthings",
+    "ios": {
+      "bundleIdentifier": "net.pjce.veganthings",
+    },
+    "android": {
+      "package": "net.pjce.veganthings",
+    }
   }
 }
